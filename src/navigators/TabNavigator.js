@@ -10,6 +10,7 @@ const TabNavigator = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
+        tabBarInactiveBackgroundColor: "#9fe801",
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
