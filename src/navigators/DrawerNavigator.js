@@ -1,17 +1,18 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Feed from "../pages/feed/Feed";
+import HomeTabs from "../pages/home/Home";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{ headerShown: true }}
+      initialRouteName="HomeTabs"
+    >
       <Drawer.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="Feed"
-        component={Feed}
+        options={{ title: "Timeline" }}
+        name="HomeTabs"
+        component={HomeTabs}
       />
     </Drawer.Navigator>
   );

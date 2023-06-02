@@ -1,8 +1,11 @@
 import { Text, View } from "react-native";
-import TabNavigator from "../../navigators/TabNavigator";
 
 const Feed = () => {
-  return <TabNavigator />;
+  return (
+    <View>
+      <Text>Feed</Text>
+    </View>
+  );
 };
 
 export default Feed;
