@@ -1,7 +1,8 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MyTipsters from "../pages/my-tipsters/MyTipsters";
-import Feed from "../pages/feed/Feed";
 import { FontAwesome } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Feed from "../pages/feed/Feed";
+import MyTipstersFeed from "../pages/my-tipsters-feed/MyTipstersFeed";
+import { COLORS } from "../constants/Colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -10,11 +11,12 @@ const TabNavigator = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        tabBarInactiveBackgroundColor: "#9fe801",
+        tabBarActiveTintColor: COLORS.HIGHLIGHT,
+        tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: "#171626",
+          backgroundColor: COLORS.PRIMARY,
           borderTopWidth: 0,
           bottom: 14,
           left: 14,
@@ -27,11 +29,11 @@ const TabNavigator = () => {
       <Tab.Screen
         options={{
           headerShown: false,
-          tabBarIcon: ({ color, focused, size }) => {
+          tabBarIcon: ({ color, focused, size = 18 }) => {
             if (focused) {
-              return <FontAwesome name="feed" size={18} color={color} />;
+              return <FontAwesome name="feed" size={size} color={color} />;
             } else {
-              return <FontAwesome name="feed" size={18} color={color} />;
+              return <FontAwesome name="feed" size={size} color={color} />;
             }
           },
         }}
@@ -49,7 +51,7 @@ const TabNavigator = () => {
           },
         }}
         name="My Tipsters"
-        component={MyTipsters}
+        component={MyTipstersFeed}
       />
     </Tab.Navigator>
   );

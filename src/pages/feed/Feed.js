@@ -1,11 +1,7 @@
-import { Text, View } from "react-native";
+import PageTitle from "../../components/Title/PageTitle";
 
 const Feed = () => {
-  return (
-    <View>
-      <Text>Feed</Text>
-    </View>
-  );
+  return <PageTitle>IA Tips</PageTitle>;
 };
 
 export default Feed;
