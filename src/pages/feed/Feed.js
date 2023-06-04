@@ -1,7 +1,14 @@
+import { View } from "react-native";
 import PageTitle from "../../components/Title/PageTitle";
+import DateSlider from "../../components/DateSlider/DateSlider";
 
 const Feed = () => {
-  return <PageTitle>IA Tips</PageTitle>;
+  return (
+    <View>
+      <PageTitle>IA Tips</PageTitle>
+      <DateSlider />
+    </View>
+  );
 };
 
 export default Feed;
