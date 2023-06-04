@@ -1,14 +1,13 @@
 import { Text, View } from "react-native";
+import { COLORS } from "../../constants/Colors";
 
 const PageTitle = ({ children, ...props }) => {
   return (
     <View
       style={{
-        padding: 10,
+        padding: 20,
         width: "100%",
-        alignContent: "center",
-        justifyContent: "center",
-        alignItems: "center",
+        display: "flex",
       }}
     >
       <Text
@@ -17,6 +16,9 @@ const PageTitle = ({ children, ...props }) => {
           color: "#000",
           fontWeight: "bold",
           fontFamily: "Roboto",
+          paddingBottom: 5,
+          borderBottomColor: COLORS.DARK_GRAY,
+          borderBottomWidth: 1,
         }}
         {...props}
       >
