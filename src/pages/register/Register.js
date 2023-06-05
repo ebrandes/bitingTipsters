@@ -1,13 +1,17 @@
+import { Entypo } from "@expo/vector-icons";
+import { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { TouchableHighlight } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LogoSvg from "../../../assets/logo-betwise.svg";
-import { Text, TouchableOpacity, View } from "react-native";
 import InputDefault from "../../components/InputDefault/InputDefault";
 import { COLORS } from "../../constants/Colors";
-import { TouchableHighlight } from "react-native-gesture-handler";
-import { useState } from "react";
-import { Entypo } from "@expo/vector-icons";
+import { phoneMaskInput } from "../../utils/Masks";
 
 const Register = () => {
+  const [phone, setPhone] = useState("");
+  const phoneMask = phoneMaskInput(phone, setPhone);
+
   const [showPassword, setShowPassword] = useState(true);
 
   return (
@@ -35,6 +39,7 @@ const Register = () => {
 
       <View style={{ marginHorizontal: 40 }}>
         <InputDefault
+          autoCapitalize={"words"}
           leftIcon={{
             size: 18,
             type: "antdesign",
@@ -64,6 +69,7 @@ const Register = () => {
             color: COLORS.GRAY,
           }}
           placeholder="Telefone"
+          {...phoneMask}
         />
 
         <InputDefault
