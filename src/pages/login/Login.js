@@ -8,7 +8,7 @@ import LogoSvg from "../../../assets/logo-betwise.svg";
 function Login({ navigation }) {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
-      <View style={{ paddingHorizontal: 20 }}>
+      <View style={{ paddingHorizontal: 40 }}>
         <View style={{ alignItems: "center" }}>
           <LogoSvg width={200} />
         </View>
@@ -58,7 +58,13 @@ function Login({ navigation }) {
           />
 
           <TouchableOpacity onPress={() => {}}>
-            <Text style={{ color: COLORS.PRIMARY, fontWeight: "500" }}>
+            <Text
+              style={{
+                fontFamily: "Inter",
+                color: COLORS.PRIMARY,
+                fontWeight: "500",
+              }}
+            >
               Forgot ?
             </Text>
           </TouchableOpacity>
