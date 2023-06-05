@@ -5,6 +5,8 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LogoSvg from "../../../assets/logo-betwise.svg";
 import { COLORS } from "../../constants/Colors";
+import { ROUTES } from "../../constants/Routes";
+import InputDefault from "../../components/InputDefault/InputDefault";
 
 const Login = ({ navigation }) => {
   const [loginText, setLoginText] = useState("Login");
@@ -13,7 +15,7 @@ const Login = ({ navigation }) => {
     setLoginText("Wait...");
     setTimeout(() => {
       setLoginText("Login");
-      navigation.navigate("Home");
+      navigation.navigate(ROUTES.HOME);
     }, 1000);
   };
 
@@ -24,72 +26,42 @@ const Login = ({ navigation }) => {
           <LogoSvg width={200} />
         </View>
 
-        <View
-          style={{
-            marginTop: 25,
-            flexDirection: "row",
-            borderBottomColor: COLORS.GRAY,
-            borderBottomWidth: 1,
-            paddingBottom: 8,
-            marginBottom: 15,
+        <InputDefault
+          keyboardType="email-address"
+          leftIcon={{
+            size: 18,
+            type: "material-icons",
+            name: "alternate-email",
+            color: COLORS.GRAY,
           }}
-        >
-          <MaterialIcons
-            name="alternate-email"
-            size={20}
-            color={COLORS.GRAY}
-            style={{ marginRight: 5, marginTop: 4 }}
-          />
-          <TextInput
-            placeholder="Email"
-            keyboardType="email-address"
-            style={{
-              flex: 1,
-              paddingVertical: 0,
-              fontFamily: "Inter_300Light",
-            }}
-          />
-        </View>
+          placeholder="Email"
+        />
 
-        <View
-          style={{
-            flexDirection: "row",
-            borderBottomColor: COLORS.GRAY,
-            borderBottomWidth: 1,
-            paddingBottom: 8,
-            marginBottom: 25,
+        <InputDefault
+          secureTextEntry={true}
+          placeholder="Password"
+          leftIcon={{
+            type: "ionicon",
+            size: 20,
+            name: "lock-closed-outline",
+            color: COLORS.GRAY,
           }}
-        >
-          <Ionicons
-            name="ios-lock-closed-outline"
-            size={20}
-            color={COLORS.GRAY}
-            style={{ marginRight: 5, marginTop: 4 }}
-          />
-          <TextInput
-            placeholder="Password"
-            secureTextEntry={true}
-            style={{
-              flex: 1,
-              paddingVertical: 0,
-              fontFamily: "Inter_300Light",
-            }}
-          />
-
-          <TouchableOpacity
-            onPress={() => navigation.navigate("RecoveryPassword")}
-          >
-            <Text
-              style={{
-                fontFamily: "Inter_300Light",
-                color: COLORS.PRIMARY,
-                fontWeight: "bold",
-              }}
+          rightIcon={
+            <TouchableOpacity
+              onPress={() => navigation.navigate(ROUTES.FORGOT_PASSWORD)}
             >
-              Forgot ?
-            </Text>
-          </TouchableOpacity>
-        </View>
+              <Text
+                style={{
+                  fontFamily: "Inter_300Light",
+                  color: COLORS.PRIMARY,
+                  fontWeight: "bold",
+                }}
+              >
+                Forgot ?
+              </Text>
+            </TouchableOpacity>
+          }
+        />
 
         <TouchableHighlight
           onPress={doLogin}
@@ -99,7 +71,7 @@ const Login = ({ navigation }) => {
             padding: 15,
             alignItems: "center",
             borderRadius: 10,
-            marginBottom: 20,
+            marginVertical: 20,
           }}
         >
           <Text style={{ color: COLORS.WHITE, fontFamily: "Inter_300Light" }}>
@@ -146,7 +118,9 @@ const Login = ({ navigation }) => {
           }}
         >
           <Text style={{ fontFamily: "Inter_300Light" }}>New for here? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(ROUTES.REGISTER)}
+          >
             <Text
               style={{
                 color: COLORS.PRIMARY,

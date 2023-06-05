@@ -1,9 +1,10 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import HomeTabs from "../pages/home/Home";
+import HomeTabs from "../pages/home-tabs/HomeTabs";
 import MyTipsters from "../pages/my-tipsters/MyTipsters";
 import CustomDrawer from "./CustomDrawer";
 import { FontAwesome } from "@expo/vector-icons";
 import { COLORS } from "../constants/Colors";
+import { ROUTES } from "../constants/Routes";
 
 const Drawer = createDrawerNavigator();
 
@@ -24,7 +25,7 @@ const DrawerNavigator = () => {
         },
         drawerActiveTintColor: COLORS.SECUNDARY,
       }}
-      initialRouteName="HomeTabs"
+      initialRouteName={ROUTES.FEED}
     >
       <Drawer.Screen
         options={{
@@ -33,14 +34,15 @@ const DrawerNavigator = () => {
             <FontAwesome name="feed" size={18} color={COLORS.PRIMARY} />
           ),
         }}
-        name="HomeTabs"
+        name={ROUTES.FEED}
         component={HomeTabs}
       />
 
       <Drawer.Screen
-        name="My Tipsters"
+        name={ROUTES.MY_TIPSTERS_FEED}
         component={MyTipsters}
         options={{
+          title: "My Tipsters Feed",
           drawerIcon: ({ color }) => (
             <FontAwesome name="users" size={18} color={COLORS.PRIMARY} />
           ),

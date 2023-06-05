@@ -6,7 +6,7 @@ import LogoSvg from "../../../assets/logo-betwise.svg";
 import { COLORS } from "../../constants/Colors";
 import { useState } from "react";
 
-const RecoveryPassword = (props) => {
+const ForgotPassword = (props) => {
   const [email, setEmail] = useState(props.email ?? "");
 
   return (
@@ -70,4 +70,4 @@ const RecoveryPassword = (props) => {
   );
 };
 
-export default RecoveryPassword;
+export default ForgotPassword;

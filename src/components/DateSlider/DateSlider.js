@@ -1,10 +1,11 @@
 import { addDays, format, subDays } from "date-fns";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Card } from "react-native-elements";
+
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS } from "../../constants/Colors";
 import PageTitle from "../Title/PageTitle";
+import { Card } from "@rneui/base";
 
 const DateSlider = () => {
   const [dates] = useState([
@@ -37,8 +38,8 @@ const DateSlider = () => {
       </View>
 
       <View>
-        {dates.map(() => (
-          <Card>
+        {dates.map((_, i) => (
+          <Card key={i}>
             <View style={{ paddingVertical: 0 }}>
               <Card.Title
                 style={{
