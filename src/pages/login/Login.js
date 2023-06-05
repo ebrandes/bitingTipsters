@@ -34,12 +34,14 @@ const Login = ({ navigation }) => {
             name: "alternate-email",
             color: COLORS.GRAY,
           }}
+          errorMessage={false ? "Email inválido" : ""}
           placeholder="Email"
         />
 
         <InputDefault
           secureTextEntry={true}
           placeholder="Password"
+          errorMessage={false ? "Password inválido" : ""}
           leftIcon={{
             type: "ionicon",
             size: 20,
@@ -71,7 +73,8 @@ const Login = ({ navigation }) => {
             padding: 15,
             alignItems: "center",
             borderRadius: 10,
-            marginVertical: 20,
+            marginVertical: 25,
+            marginTop: 30,
           }}
         >
           <Text style={{ color: COLORS.WHITE, fontFamily: "Inter_300Light" }}>

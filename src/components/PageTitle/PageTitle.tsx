@@ -1,7 +1,13 @@
+import React, { ReactNode } from "react";
 import { Text, View } from "react-native";
 import { COLORS } from "../../constants/Colors";
 
-const PageTitle = ({ children, ...props }) => {
+interface PageTitleProps {
+  children: ReactNode;
+  style: StyleSheet;
+}
+
+const PageTitle: React.FC<PageTitleProps> = ({ children, ...props }) => {
   return (
     <View
       style={{

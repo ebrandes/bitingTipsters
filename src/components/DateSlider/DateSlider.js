@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS } from "../../constants/Colors";
-import PageTitle from "../Title/PageTitle";
+import PageTitle from "../PageTitle/PageTitle";
 import { Card } from "@rneui/base";
 
 const DateSlider = () => {

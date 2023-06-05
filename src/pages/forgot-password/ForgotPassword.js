@@ -1,10 +1,10 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { useState } from "react";
 import { Text, View } from "react-native";
-import { TextInput, TouchableHighlight } from "react-native-gesture-handler";
+import { TouchableHighlight } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LogoSvg from "../../../assets/logo-betwise.svg";
+import InputDefault from "../../components/InputDefault/InputDefault";
 import { COLORS } from "../../constants/Colors";
-import { useState } from "react";
 
 const ForgotPassword = (props) => {
   const [email, setEmail] = useState(props.email ?? "");
@@ -15,6 +15,17 @@ const ForgotPassword = (props) => {
         <View style={{ marginTop: 30 }}>
           <LogoSvg width={150} height={80} />
 
+          <Text
+            style={{
+              marginBottom: 20,
+              fontWeight: "bold",
+              fontSize: 20,
+              fontFamily: "Inter_300Light",
+            }}
+          >
+            Esqueceu sua senha?
+          </Text>
+
           <View>
             <Text>
               Insira o seu email e enviaremos um link para você voltar a acessar
@@ -22,33 +33,17 @@ const ForgotPassword = (props) => {
             </Text>
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              borderBottomColor: COLORS.GRAY,
-              borderBottomWidth: 1,
-              paddingBottom: 8,
-              marginVertical: 40,
+          <InputDefault
+            keyboardType="email-address"
+            leftIcon={{
+              size: 18,
+              type: "material-icons",
+              name: "alternate-email",
+              color: COLORS.GRAY,
             }}
-          >
-            <MaterialIcons
-              name="alternate-email"
-              size={20}
-              color={COLORS.GRAY}
-              style={{ marginRight: 5, marginTop: 4 }}
-            />
-            <TextInput
-              onChangeText={setEmail}
-              value={email}
-              placeholder="Email"
-              keyboardType="email-address"
-              style={{
-                flex: 1,
-                paddingVertical: 0,
-                fontFamily: "Inter_300Light",
-              }}
-            />
-          </View>
+            errorMessage={true ? "Email inválido" : ""}
+            placeholder="Email"
+          />
 
           <TouchableHighlight
             onPress={() => {}}
@@ -57,6 +52,7 @@ const ForgotPassword = (props) => {
               padding: 15,
               alignItems: "center",
               borderRadius: 10,
+              marginTop: 25,
               marginBottom: 20,
             }}
           >

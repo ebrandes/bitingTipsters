@@ -7,4 +7,5 @@ export const COLORS = {
   LIGHT_GRAY: "#F8F8F8",
   GRAY: "#CCC",
   DARK_GRAY: "#666",
+  ERROR: "#C30",
 };

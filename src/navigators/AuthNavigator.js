@@ -15,10 +15,10 @@ function AuthNavigator() {
       screenOptions={{ headerShown: false }}
       initialRouteName={ROUTES.LOGIN}
     >
-      <Stack.Screen name={ROUTES.REGISTER} component={Register} />
       <Stack.Screen name={ROUTES.LOGIN} component={Login} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
       <Stack.Screen name={ROUTES.HOME} component={DrawerNavigator} />
+      <Stack.Screen name={ROUTES.REGISTER} component={Register} />
     </Stack.Navigator>
   );
 }
