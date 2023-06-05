@@ -1,11 +1,22 @@
-import React from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { TouchableHighlight } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS } from "../../constants/Colors";
 import LogoSvg from "../../../assets/logo-betwise.svg";
+import { COLORS } from "../../constants/Colors";
 
-function Login({ navigation }) {
+const Login = ({ navigation }) => {
+  const [loginText, setLoginText] = useState("Login");
+
+  const doLogin = () => {
+    setLoginText("Wait...");
+    setTimeout(() => {
+      setLoginText("Login");
+      navigation.navigate("Home");
+    }, 1000);
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
       <View style={{ paddingHorizontal: 40 }}>
@@ -32,7 +43,11 @@ function Login({ navigation }) {
           <TextInput
             placeholder="Email"
             keyboardType="email-address"
-            style={{ flex: 1, paddingVertical: 0 }}
+            style={{
+              flex: 1,
+              paddingVertical: 0,
+              fontFamily: "Inter_300Light",
+            }}
           />
         </View>
 
@@ -54,15 +69,21 @@ function Login({ navigation }) {
           <TextInput
             placeholder="Password"
             secureTextEntry={true}
-            style={{ flex: 1, paddingVertical: 0 }}
+            style={{
+              flex: 1,
+              paddingVertical: 0,
+              fontFamily: "Inter_300Light",
+            }}
           />
 
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("RecoveryPassword")}
+          >
             <Text
               style={{
-                fontFamily: "Inter",
+                fontFamily: "Inter_300Light",
                 color: COLORS.PRIMARY,
-                fontWeight: "500",
+                fontWeight: "bold",
               }}
             >
               Forgot ?
@@ -70,8 +91,9 @@ function Login({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Home")}
+        <TouchableHighlight
+          onPress={doLogin}
+          disabled={loginText === "Wait..."}
           style={{
             backgroundColor: COLORS.PRIMARY,
             padding: 15,
@@ -80,14 +102,17 @@ function Login({ navigation }) {
             marginBottom: 20,
           }}
         >
-          <Text style={{ color: COLORS.WHITE }}>Login</Text>
-        </TouchableOpacity>
+          <Text style={{ color: COLORS.WHITE, fontFamily: "Inter_300Light" }}>
+            {loginText}
+          </Text>
+        </TouchableHighlight>
 
         <Text
           style={{
             textAlign: "center",
             color: COLORS.DARK_GRAY,
             marginBottom: 20,
+            fontFamily: "Inter_300Light",
           }}
         >
           Or, login with...
@@ -120,9 +145,15 @@ function Login({ navigation }) {
             marginTop: 20,
           }}
         >
-          <Text>New for here? </Text>
-          <TouchableOpacity>
-            <Text style={{ color: COLORS.PRIMARY, fontWeight: "bold" }}>
+          <Text style={{ fontFamily: "Inter_300Light" }}>New for here? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text
+              style={{
+                color: COLORS.PRIMARY,
+                fontWeight: "bold",
+                fontFamily: "Inter_300Light",
+              }}
+            >
               Register
             </Text>
           </TouchableOpacity>
@@ -130,6 +161,6 @@ function Login({ navigation }) {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 export default Login;

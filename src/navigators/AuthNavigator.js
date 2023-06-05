@@ -2,9 +2,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import Login from "../pages/login/Login";
 import RecoveryPassword from "../pages/recovery-password/RecoveryPassword";
+import Register from "../pages/register/Register";
 import DrawerNavigator from "./DrawerNavigator";
-import Icon from "react-native-vector-icons/FontAwesome";
-import TabNavigator from "./TabNavigator";
 
 const Stack = createStackNavigator();
 
@@ -14,8 +13,9 @@ function AuthNavigator() {
       screenOptions={{ headerShown: false }}
       initialRouteName="Login"
     >
+      <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Recovery Password" component={RecoveryPassword} />
+      <Stack.Screen name="RecoveryPassword" component={RecoveryPassword} />
       <Stack.Screen name="Home" component={DrawerNavigator} />
     </Stack.Navigator>
   );

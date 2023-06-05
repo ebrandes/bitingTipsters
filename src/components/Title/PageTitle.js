@@ -5,12 +5,12 @@ const PageTitle = ({ children, ...props }) => {
   return (
     <View
       style={{
-        padding: 20,
         width: "100%",
         display: "flex",
       }}
     >
       <Text
+        {...props}
         style={{
           fontSize: 22,
           color: "#000",
@@ -19,8 +19,8 @@ const PageTitle = ({ children, ...props }) => {
           paddingBottom: 5,
           borderBottomColor: COLORS.DARK_GRAY,
           borderBottomWidth: 1,
+          ...props.style,
         }}
-        {...props}
       >
         {children}
       </Text>
