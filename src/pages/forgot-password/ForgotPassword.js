@@ -41,7 +41,6 @@ const ForgotPassword = (props) => {
               name: "alternate-email",
               color: COLORS.GRAY,
             }}
-            errorMessage={true ? "Email inválido" : ""}
             placeholder="Email"
           />
 

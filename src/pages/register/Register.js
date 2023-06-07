@@ -7,12 +7,14 @@ import LogoSvg from "../../../assets/logo-betwise.svg";
 import InputDefault from "../../components/InputDefault/InputDefault";
 import { COLORS } from "../../constants/Colors";
 import { phoneMaskInput } from "../../utils/Masks";
+import CheckboxDefault from "../../components/Checkbox/Checkbox";
 
 const Register = () => {
+  const [acceptTerms, setAcceptTerms] = useState(false);
   const [phone, setPhone] = useState("");
   const phoneMask = phoneMaskInput(phone, setPhone);
 
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <SafeAreaView
@@ -30,10 +32,12 @@ const Register = () => {
           style={{
             fontWeight: "bold",
             fontFamily: "Inter_300Light",
-            fontSize: 24,
+            paddingHorizontal: 40,
+            textAlign: "center",
+            fontSize: 18,
           }}
         >
-          Cadastro
+          Crie sua conta grátis e comece a apostar agora mesmo
         </Text>
       </View>
 
@@ -110,6 +114,47 @@ const Register = () => {
           }}
           placeholder="Confirme sua senha"
         />
+
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignContent: "center",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CheckboxDefault
+            onChange={() => setAcceptTerms(!acceptTerms)}
+            checked={acceptTerms}
+            title={""}
+          />
+          <Text style={{ paddingHorizontal: 15 }}>
+            Eu concordo com os termos de{" "}
+            {
+              <Text
+                style={{
+                  color: COLORS.PRIMARY,
+                  textDecorationLine: "underline",
+                  textDecorationColor: COLORS.PRIMARY,
+                }}
+              >
+                política
+              </Text>
+            }{" "}
+            e
+            <Text
+              style={{
+                color: COLORS.PRIMARY,
+                textDecorationLine: "underline",
+                textDecorationColor: COLORS.PRIMARY,
+              }}
+            >
+              {" "}
+              privacidade
+            </Text>
+          </Text>
+        </View>
 
         <TouchableHighlight
           onPress={() => {}}

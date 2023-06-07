@@ -8,4 +8,6 @@ export const COLORS = {
   GRAY: "#CCC",
   DARK_GRAY: "#666",
   ERROR: "#C30",
+  TRANSPARENT: "transparent",
+  GREEN: "#478778",
 };

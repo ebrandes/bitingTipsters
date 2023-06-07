@@ -13,7 +13,7 @@ function AuthNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={ROUTES.LOGIN}
+      initialRouteName={ROUTES.HOME}
     >
       <Stack.Screen name={ROUTES.LOGIN} component={Login} />
       <Stack.Screen name={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
