@@ -14,10 +14,12 @@ const TabNavigator = () => {
         tabBarActiveTintColor: COLORS.HIGHLIGHT,
         tabBarShowLabel: false,
         headerShown: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           position: "absolute",
           backgroundColor: COLORS.PRIMARY,
           borderTopWidth: 0,
+          display: "none",
           bottom: 14,
           left: 14,
           right: 14,

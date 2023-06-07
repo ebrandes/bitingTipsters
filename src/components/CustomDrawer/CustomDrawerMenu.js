@@ -1,4 +1,13 @@
-import { EvilIcons, Feather, FontAwesome } from "@expo/vector-icons";
+import {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  Foundation,
+  Ionicons,
+} from "@expo/vector-icons";
 import { ROUTES } from "../../constants/Routes";
 import { TouchableOpacity, View, Text } from "react-native";
 import { COLORS } from "../../constants/Colors";
@@ -12,24 +21,42 @@ const CustomDrawerMenu = (props) => {
       icon: <FontAwesome name="feed" size={18} />,
       opened: false,
     },
-    // {
-    //   label: "My tipster place",
-    //   route: ROUTES.MY_TIPSTERS,
-    //   icon: <Feather name="users" size={16} />,
-    //   opened: false,
-    //   submenus: [
-    //     {
-    //       label: "Bet",
-    //       route: "BET",
-    //       icon: "",
-    //     },
-    //     {
-    //       label: "My Bets",
-    //       route: "MYBETS",
-    //       icon: "",
-    //     },
-    //   ],
-    // },
+    {
+      label: "My tipster place",
+      route: ROUTES.MY_TIPSTERS,
+      icon: <Feather name="users" size={16} />,
+      opened: false,
+      submenus: [
+        {
+          label: "Bet",
+          route: "BET",
+          icon: <Ionicons name="football" size={18} />,
+        },
+        {
+          label: "My Bets",
+          route: "MYBETS",
+          icon: <Foundation name="results" size={18} />,
+        },
+      ],
+    },
+    {
+      label: "Minha Rede social",
+      route: ROUTES.MY_SOCIAL_NETWORK_HOME,
+      icon: <Entypo name="network" size={18} />,
+      opened: false,
+    },
+    {
+      label: "IA Histórico",
+      route: ROUTES.HISTORY,
+      icon: <FontAwesome name="list-alt" size={18} />,
+      opened: false,
+    },
+    {
+      label: "Meu Placar",
+      route: ROUTES.MY_RESULTS,
+      icon: <AntDesign name="linechart" size={18} />,
+      opened: false,
+    },
   ]);
 
   return (
