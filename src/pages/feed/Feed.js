@@ -147,7 +147,7 @@ const Feed = () => {
             renderItem={({ item }) => (
               <View style={{ flex: 1, alignSelf: "stretch", width }}>
                 <CardGame disabled={true} />
-                <CardGame />
+                <CardGame selected={true} />
                 <CardGame />
                 <CardGame />
                 <CardGame />
@@ -186,9 +186,8 @@ const Feed = () => {
             zIndex: 2,
           }}
           visible={true}
-          title="Hide"
-          icon={{ name: "delete", color: "white" }}
-          color="red"
+          title="Apostar"
+          color={COLORS.PRIMARY}
         />
       </View>
     </View>
